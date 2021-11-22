@@ -2,9 +2,11 @@ let fdata = document.getElementById('fdata');
 let fdate = document.getElementById('fdate');
 let colorAlarm = document.getElementById('colorAlarm');
 let descriptionAlarm = document.getElementById('descriptionAlarm');
+const URLActual = window.location;
+const link = URLActual + '/api';
 async function level() {
     //Fetch para obtener el ultimo dato de la base de datos
-    var response = await fetch(`http://localhost:8080/monitoreo/tiemporeal/api`,{
+    var response = await fetch(link,{
         mode: "cors",
         headers: {
             "Access-Control-Allow-Headers": "Content-Type",
