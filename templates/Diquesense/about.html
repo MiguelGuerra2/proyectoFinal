@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} QUIENES SOMOS {% endblock %}
+
+{% block content %}
+
+<div class="row mx-0 d-flex">
+    <div class="col-12 col-md-5 d-flex flip-vertical-right h-100 my-auto">
+        <div class="bg-graylight d-flex flex-column py-4 h-75">
+            <div class="m-auto">
+                <header>
+                    <h3 class="pt-2 fs-4 bold text-center">Proyecto Dique-Sense</h3>
+                </header>
+                <main class="px-3">
+                    <p class="text-center pt-4">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur vero aperiam hic quos, maxime cupiditate dolorem eos beatae sed. Tempora sit, eaque vero libero voluptatem iure porro dicta esse aspernatur. Ducimus soluta pariatur facilis veritatis ipsam, rem nostrum quibusdam possimus, ipsum dignissimos nihil voluptatibus! Inventore deserunt ipsa nemo iusto dolor!
+                    </p>
+                </main>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-7 py-3 d-flex">
+        <img class="col-10 mx-auto" src="{{ url_for('static', filename='./img/rio.svg') }}">
+    </div>
+</div>
+<div class="row w-100 mx-0 mb-3">
+    <div class="col-12 bg-graylight d-flex flex-column">
+        <h3 class="text-center my-3">Nuestro equipo</h3>
+        <div class="row w-100 d-flex mx-auto pb-3">
+            <div class="col-12 col-md-6 d-flex flex-column py-4 mx-auto border">
+                <div class="rounded-circle bg-bluedark img-team mx-auto my-2"></div>
+                <p class="my-3 text-center">Miguel Angel Guerra Chamorro</p>
+                <p class="text-center">Estudiante de ingenieria electronica</p>
+                <p class="text-center">Universidad del Norte</p>
+            </div>
+            <div class="col-12 col-md-6 d-flex flex-column py-4 mx-auto border">
+                <div class="rounded-circle bg-bluedark img-team mx-auto my-2"></div>
+                <p class="my-3 text-center">Gregory David Diaz Barrios</p>
+                <p class="text-center">Estudiante de ingenieria electronica</p>
+                <p class="text-center">Universidad del Norte</p>
+            </div>  
+        </div>
+    </div>
+</div>
+<div class="row w-100 bg-graylight mx-0 my-3">
+    <div class="col-12 bg-graylight d-flex flex-column">
+        <h3 class="text-center mt-3">Nuestra institucion</h3>
+        <div class="row w-100 d-flex flex-column mx-auto pb-3">
+              <img class="col-5 col-md-3 mx-auto mt-2" src="{{ url_for('static', filename='./img/logoun.png') }}" alt="Logo universidad del norte">
+              <p class="text-center col-6 mt-4 mx-auto">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, recusandae eligendi sit numquam sunt soluta odio, debitis accusantium vero laudantium similique sapiente corrupti expedita doloribus ipsum id atque blanditiis architecto?
+              </p>
+        </div>
+    </div>
+</div>
+    
+
+
+
+{% endblock %}

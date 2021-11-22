@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
+
+    <!-- Iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <title>{% block title %}{% endblock %} - DiqueSense</title>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-bluedark">
+        <div class="container-fluid">
+          <a class="navbar-brand ms-lg-5" href="{{ url_for('routes.index') }}"><b>DIQUE-SENSE</b></a>
+          <button class="navbar-toggler bg-bluedark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i><ion-icon name="menu-outline"></ion-icon></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ url_for('routes.index') }}"><ion-icon class="icons" name="home-outline"></ion-icon>INICIO</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ion-icon class="icons" name="eye-outline"></ion-icon>MONITOREO
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('level.tiemporeal') }}">TIEMPO REAL</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('level.historial') }}">HISTORIAL</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('routes.prevention') }}"><ion-icon class="icons" name="warning-outline"></ion-icon>PREVENCION</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('routes.about') }}"><ion-icon class="icons" name="information-circle-outline"></ion-icon>QUIENES SOMOS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <article>
+        {% block content %}
+        {% endblock %}
+    </article>
+    <footer class="footer1 text-center text-white" id="bg-gradient">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-2">
+            <!-- Facebook -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #3b5998;"
+              href="#!"
+              role="button"
+              ><ion-icon name="logo-facebook"></ion-icon></a>
+      
+            <!-- Twitter -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #55acee;"
+              href="#!"
+              role="button"
+              ><ion-icon name="logo-twitter"></ion-icon></a>
+      
+            <!-- Google -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #dd4b39;"
+              href="https://www.google.com/search?q=canal+del+dique&rlz=1C1CHZN_esCO943CO943&oq=canal+del+dique&aqs=chrome..69i57j46i512j0i512l8.4829j0j4&sourceid=chrome&ie=UTF-8"
+              role="button"
+              target="_blank"
+              ><ion-icon name="logo-google"></ion-icon></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #ac2bac;"
+              href="#!"
+              role="button"
+              ><ion-icon name="logo-instagram"></ion-icon></a>
+            <a
+              class="btn btn-primary btn-floating m-1"
+              style="background-color: #333333;"
+              href="#!"
+              role="button"
+              ><ion-icon name="logo-github"></ion-icon></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-1">
+          © 2021 Copyright:
+          <a class="text-white" href="https://dique-sense.com/">Dique-sense.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  </body>
+  {% block script %}
+  {% endblock %}
+  </html>

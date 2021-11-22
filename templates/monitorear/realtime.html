@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} TIEMPO REAL {% endblock %}
+
+{% block content %}
+
+<div class="row w-100 mx-0 mb-3 bg-graylight d-flex flex-wrap-reverse">
+    <div class="full2 col-12 col-md-8 border d-flex flex-column pb-3">
+        <h1 class="m-auto my-3 fs-1 text-center">Informacion en tiempo Real</h1>
+        <p class="fs-4"><b>El ultimo valor obtenido por el sistema de medicion es:</b></p>
+        <p class="fs-3 text-center" id="fdata"></p>
+        <p class="fs-4"><b>El dia:</b></p>
+        <p class="fs-3 text-center" id="fdate"></p>
+        <p class="fs-4"><b>Recuerda:</b> En nuestra plataforma tambien es posible hacer consultas para obtener valores medidos anteriormente.</p>
+        <a class="btn bg-green text-light text-decoration-none align-self-end mt-3" href="{{ url_for('level.historial') }}">Realizar una consulta</a>
+    </div>
+
+    <div class="full2 col-12 col-md-4 h-75 my-auto">
+        <div class="col-12 d-flex flex-column py-4 border">
+            <p class="my-3 text-center"><b>Nivel actual</b></p>
+            <div class="rounded-circle img-team mx-auto my-2" id='colorAlarm'></div>
+            <p class="text-center w-75 mx-auto mt-3" id="descriptionAlarm"></p>
+        </div>
+    </div>
+</div>
+<div class="row w-100 mx-0 mb-3">
+    <div class="col-12 bg-graylight d-flex flex-column">
+        <h3 class="text-center my-3">Rango de niveles</h3>
+        <div class="row w-100 d-flex mx-auto pb-3">
+            <div class="col-12 col-md-4 d-flex flex-column py-4 mx-auto border">
+                <p class="my-3 text-center"><b>Bajo nivel</b></p>
+                <div class="rounded-circle img-team mx-auto my-2" style="background-color: blue;"></div>
+                <p class="text-center">Descripcion del nivel</p>
+            </div>
+            <div class="col-12 col-md-4 d-flex flex-column py-4 mx-auto border">
+                <p class="my-3 text-center"><b>Nivel normal</b></p>
+                <div class="rounded-circle bg-green img-team mx-auto my-2"></div>
+                <p class="text-center">Descripcion del nivel</p>
+            </div>  
+            <div class="col-12 col-md-4 d-flex flex-column py-4 mx-auto border">
+                <p class="my-3 text-center"><b>Alerta roja</b></p>
+                <div class="rounded-circle img-team mx-auto my-2" style="background-color: red;"></div>
+                <p class="text-center">Descripcion del nivel</p>
+            </div>  
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static',filename='./js/realtime.js') }}"></script>
+{% endblock %}
