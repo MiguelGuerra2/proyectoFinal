@@ -1,3 +1,4 @@
+from configparser import LegacyInterpolation
 from flask import (Blueprint, render_template, request)
 from db import get_db
 import json
@@ -19,13 +20,11 @@ def apitiemporeal():
     c.execute(
         'SELECT * FROM datalevel ORDER BY id DESC LIMIT 1'
     )
-    lastValue = c.fetchall()
-    def datetime_handler(x):
-        if isinstance(x, datetime.datetime):
-            return x.isoformat()
-        raise TypeError("Unknown type")
-    var1 = json.dumps(lastValue, default=datetime_handler)
-    return var1
+    lastValue = c.fetchone()
+    date1 = str(lastValue['dates'])
+    data1 = str(lastValue['data'])
+    result1 = date1 + '*' + data1
+    return result1
 
 @bp.route('/historial', methods=['GET', 'POST'])
 def historial():

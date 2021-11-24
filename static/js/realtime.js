@@ -15,14 +15,12 @@ async function level() {
         }
     });
     if (response.status == 200) {
-        let json1 = await response.json(); 
-        info = json1[0];
-        let data = info['data'];
-        let date = info['date'].split('T');
-        let hora = date[1].toString();
-        let timetxt = date[0] + ' ' + hora ;  
+        let datas = await response.text(); 
+        datas = datas.split('*');
+        let data = datas[1];
+        let date = datas[0];  
         fdata.innerHTML=data + ' metros';
-        fdate.innerHTML=timetxt;
+        fdate.innerHTML=date;
         if (data < 2){
             colorAlarm.style.backgroundColor='blue';
             descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un bajo nivel respecto a su nivel promedio.';

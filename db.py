@@ -8,10 +8,10 @@ from schema import instructions #Carpeta creada
 def get_db():
     if 'db' not in g:
         g.db = mysql.connector.connect(
-            host=current_app.config['DATABASE_HOST'], #Se usa corchetes porque son propiedades de la configuracion
-            user=current_app.config['DATABASE_USER'],
-            password=current_app.config['DATABASE_PASSWORD'],
-            database=current_app.config['DATABASE']
+            host='localhost',
+            user='root',
+            password='mabe2402',
+            database='diquesense'
         )
         g.c = g.db.cursor(dictionary=True)
     return g.db, g.c
