@@ -27,12 +27,12 @@ async function level() {
         }
         if (2 < data && data < 5){
             colorAlarm.style.backgroundColor='green';
-            descriptionAlarm.innerHTML='Descripcion de nivel medio';
+            descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un nivel normal respecto su nivel promedio.';
         }
         if (data > 5){
             colorAlarm.style.backgroundColor='red';
-            descriptionAlarm.innerHTML='Descripcion de nivel alto';
+            descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un alto nivel respecto a su nivel promedio.';
         }
-    }    
+    }
 }setInterval("level()", 5000);
 level()

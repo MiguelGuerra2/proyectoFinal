@@ -112,13 +112,13 @@ body::-webkit-scrollbar-thumb {
     top: 40%;
 }
 .low-color {
-    background-color: #2A1CC3;
+    background-color: #8074ff;
 }
 .mid-color {
-    background-color: #4EE646;
+    background-color: #85ff7e;
 }
 .high-color {
-    background-color: #F72E32;
+    background-color: #ff7b7f;
 }
 @media (min-width: 768px) { 
     .full {
