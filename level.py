@@ -21,10 +21,10 @@ def apitiemporeal():
         'SELECT * FROM datalevel ORDER BY id DESC LIMIT 1'
     )
     lastValue = c.fetchone()
-    date1 = str(lastValue['dates'])
+    date1 = str(lastValue['date'])
     data1 = str(lastValue['data'])
     result1 = date1 + '*' + data1
-    return result1
+    return lastValue
 
 @bp.route('/historial', methods=['GET', 'POST'])
 def historial():
@@ -49,7 +49,7 @@ def historial():
             date2f = str(str(date2[0]) + ' ' + str(date2[1]))
             db, c = get_db()
             c.execute(
-                f'select * from datalevel where date BETWEEN STR_TO_DATE( "{date1f}" ,"%Y-%m-%d %H:%i:%s") AND STR_TO_DATE( "{date2f}" ,"%Y-%m-%d %H:%i:%s")'
+                f'select * from datalevel where date BETWEEN STR_TO_DATE( "{date1f}" ,"%Y-%m-%d %H:%i:%s") AND STR_TO_DATE( "{date2f}" ,"%Y-%m-%d %H:%i:%s") ORDER BY id DESC'
             )
             if c.fetchone() is None:
                 error = 'No existen datos en el rango de fechas ingresado'

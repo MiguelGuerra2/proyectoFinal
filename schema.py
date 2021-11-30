@@ -7,7 +7,7 @@ instructions = [
     CREATE TABLE datalevel (
         id INT PRIMARY KEY AUTO_INCREMENT,
         dates DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        data FLOAT(6,2) NOT NULL
+        data DECIMAL(6,2) NOT NULL
     )
     """
 ]

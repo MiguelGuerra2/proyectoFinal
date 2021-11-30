@@ -21,15 +21,15 @@ async function level() {
         let date = datas[0];  
         fdata.innerHTML=data + ' metros';
         fdate.innerHTML=date;
-        if (data < 2){
+        if (data <= 5){
             colorAlarm.style.backgroundColor='blue';
             descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un bajo nivel respecto a su nivel promedio.';
         }
-        if (2 < data && data < 5){
+        if (5 < data && data < 8){
             colorAlarm.style.backgroundColor='green';
             descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un nivel normal respecto su nivel promedio.';
         }
-        if (data > 5){
+        if (data >= 8){
             colorAlarm.style.backgroundColor='red';
             descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un alto nivel respecto a su nivel promedio.';
         }

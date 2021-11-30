@@ -43,18 +43,17 @@ def tcp():
         while 1:
             newSocket, address = sock.accept(  )
             print ("Connected from", address)
-            # loop serving the new client
             while 1:
-                receivedData = newSocket.recv(1024)
+                receivedData = newSocket.recv(1024) #informacion recibida
                 if not receivedData: break
-                data = float(receivedData)
-                data = data/100
+                data = float(receivedData) #Se convierte a float
+                data = data/100 #Se pasa de centimetros a metros
                 with app.app_context():
                     db, c = get_db()
                     c.execute(
                         'insert into datalevel (data) value (%s)',
                         (data,)
-                    )
+                    ) #Se inserta la informacion recibida en la tabla
                     db.commit()
             newSocket.close()
             print ("Disconnected from", address)
