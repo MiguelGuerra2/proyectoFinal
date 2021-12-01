@@ -3,11 +3,8 @@
 
 {% block content %}
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-{% if errorType == 'warning' %}
-<div class="alert alert-warning" role="alert" id="alert">
-    {{ error }}
-</div>
-{% endif %}
+
+<div class="alert alert-warning" role="alert" id="alertwarning" style="display: none;">No existen datos en el rango de fechas seleccionado.</div>
 
 {% if errorType == 'error' %}
 <div class="alert alert-danger" role="alert" id="alert">
@@ -68,9 +65,9 @@ var dates = [];
     setTimeout(function(){ 
         const ctx = document.getElementById('myChart').getContext('2d');
         const gradientStroke = ctx.createLinearGradient(0, 0, 0, 400);
-        gradientStroke.addColorStop(1, "#0077ff");
-        gradientStroke.addColorStop(0.6, "#68df32");
-        gradientStroke.addColorStop(0, "#e93c22");
+        gradientStroke.addColorStop(1, "#1a26ff");
+        gradientStroke.addColorStop(0.6, "#48ff44");
+        gradientStroke.addColorStop(0, "#ff0f0f");
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {

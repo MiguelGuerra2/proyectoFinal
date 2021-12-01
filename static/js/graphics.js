@@ -16,10 +16,16 @@ if (date1 != '' && date2 != ''){
         });
         if (response.status == 200) {
             var infos = await response.json(); 
-            for (let i = 0; i < infos.length; i++) {
-                dates.push(infos[i][0]);
-                datas.push(infos[i][1]);
+            if (infos.length > 0){
+                for (let i = 0; i < infos.length; i++) {
+                    dates.push(infos[i][0]);
+                    datas.push(infos[i][1]);
+                }
+            }else{
+                const alertwarning = document.getElementById('alertwarning');
+                alertwarning.style.display='block';
             }
+            
         }
     };
     hist()
