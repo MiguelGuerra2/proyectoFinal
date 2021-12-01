@@ -2,7 +2,6 @@ from configparser import LegacyInterpolation
 from flask import (Blueprint, render_template, request)
 from db import get_db
 import json
-import datetime
 
 bp = Blueprint('level',__name__, url_prefix='/monitoreo')
 
@@ -37,7 +36,7 @@ def apihistorial():
     datafinal = []
     db, c = get_db()
     c.execute(
-        f'select * from datalevel where dates BETWEEN STR_TO_DATE( "{date1}" ,"%Y-%m-%d %H:%i:%s") AND STR_TO_DATE( "{date2}" ,"%Y-%m-%d %H:%i:%s") ORDER BY id DESC'
+        f'select * from datalevel where dates BETWEEN STR_TO_DATE( "{date1}" ,"%Y-%m-%d %H:%i:%s") AND STR_TO_DATE( "{date2}" ,"%Y-%m-%d %H:%i:%s") ORDER BY id ASC'
     )
     datahistorial = c.fetchall()
     for i in range(len(datahistorial)):
