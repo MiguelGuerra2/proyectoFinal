@@ -22,15 +22,15 @@ async function level() {
         fdata.innerHTML=data + ' metros';
         fdate.innerHTML=date;
         if (data <= 5){
-            colorAlarm.style.backgroundColor='blue';
+            colorAlarm.style.backgroundColor='rgb(65, 65, 253)';
             descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un bajo nivel respecto a su nivel promedio.';
         }
         if (5 < data && data < 8){
-            colorAlarm.style.backgroundColor='green';
+            colorAlarm.style.backgroundColor='#4C9A7E';
             descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un nivel normal respecto su nivel promedio.';
         }
         if (data >= 8){
-            colorAlarm.style.backgroundColor='red';
+            colorAlarm.style.backgroundColor='rgb(255, 72, 72)';
             descriptionAlarm.innerHTML='Actualmente el brazo fluvial presenta un alto nivel respecto a su nivel promedio.';
         }
     }
