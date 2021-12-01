@@ -11,10 +11,10 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.config.from_mapping(
     SECRET_KEY= 'mikey',
-    DATABASE_HOST=os.getenv("FLASK_DATABASE_HOST"),
-    DATABASE_PASSWORD=os.getenv("FLASK_DATABASE_PASSWORD"),
-    DATABASE_USER=os.getenv("FLASK_DATABASE_USER"),
-    DATABASE=os.getenv("FLASK_DATABASE")
+    DATABASE_HOST='localhost',
+    DATABASE_PASSWORD='mabe2402',
+    DATABASE_USER='root',
+    DATABASE='diquesense'
 )
 
 import db

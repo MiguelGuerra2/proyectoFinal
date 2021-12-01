@@ -49,12 +49,17 @@
             <input type="submit" value="Consultar" class="btn text-light bg-green mx-auto my-4">
         </form>
     </div>
-    <input type="hidden" value="{{ results1 }}" id="vars">
+    <input type="hidden" value="{{ date1 }}" id="date1">
+    <input type="hidden" value="{{ date2 }}" id="date2">
 </div>
  
 
 {% endblock %}
 {% block script %}
+<script>
+var datas = [];
+var dates = [];
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='./js/graphics.js') }}"></script>
 <script src="{{ url_for('static', filename='./js/calendars.js') }}"></script>
@@ -68,10 +73,10 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: window.dates,
+            labels: dates,
             datasets: [{
                 label: 'Nivel del brazo fluvial (metros)',
-                data: window.datas,
+                data: datas,
                 backgroundColor: gradientStroke,
                 borderColor: gradientStroke,
                 borderWidth: 2,
@@ -87,38 +92,18 @@
             }]
         },
         options: {          
-        legend: {
-            position: "top",
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: "rgba(0,0,0,0.5)",
-                    fontStyle: "bold",
-                    beginAtZero: true,
-                    maxTicksLimit: 5,
-                    padding: 20
-                },
-                gridLines: {
-                    drawTicks: false,
-                    display: false
-                },
+            legend: {
+                position: "top",
+            },
+            scales: {
+            y: {
                 min: 0,
-                max:16
-            }],
-            xAxes: [{
-                gridLines: {
-                    zeroLineColor: "transparent"
-                },
-                ticks: {
-                    padding: 20,
-                    fontColor: "rgba(0,0,0,0.5)",
-                    fontStyle: "bold"
-                }
-            }]
-        }
-    }
-});
+                max: 9,
+            }
+            }
+        },
+    });
+myChart.update();
 </script>
 {% endblock %}
 
