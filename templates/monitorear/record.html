@@ -2,7 +2,7 @@
 {% block title %} HISTORIAL {% endblock %}
 
 {% block content %}
-
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 {% if errorType == 'warning' %}
 <div class="alert alert-warning" role="alert" id="alert">
     {{ error }}
@@ -65,7 +65,7 @@ var dates = [];
 <script src="{{ url_for('static', filename='./js/calendars.js') }}"></script>
 <script src="{{ url_for('static', filename='./js/mobile.js') }}"></script>
 <script>
-    window.onload = function() {
+    setTimeout(function(){ 
         const ctx = document.getElementById('myChart').getContext('2d');
         const gradientStroke = ctx.createLinearGradient(0, 0, 0, 400);
         gradientStroke.addColorStop(1, "#80b6f4");
@@ -104,7 +104,8 @@ var dates = [];
                 }
             },
         });
-    };
+    }, 500);
+    
 </script>
 {% endblock %}
 
